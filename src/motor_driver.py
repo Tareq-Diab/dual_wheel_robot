@@ -59,7 +59,7 @@ def key_listener():
                     gpio.output(mr[1],1)
                     gpio.output(ml[1],1)      
                 if event.key == pygame.K_UP:
-                    twist.linear.
+                    twist.linear.x=v
                     x=v
                     message='up'
                     print(message)
