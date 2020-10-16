@@ -5,18 +5,19 @@ from read_PWM import reader
 import pigpio
 
 
-class motorspeed(self,pin,resolution):
-    def __init__(self,l,r):
+class motorspeed:
+    def __init__(self,pin,resolution):
         self.pi=pigpio.pi()
-        self.motor=reader(pi,pin)
+        self.resolution=resolution
+        self.motor=reader(self.pi,pin)
     def RPS(self):
         self.F=self.motor.frequency()
         self.motor._high=None
         self.motor._high_tick=None
         self.motor._period=None
-        if not(self.F==0)
+        if not ( self.F == 0 ):
 
-            self.rps=self.F/resolution
+            self.rps=self.F/self.resolution
             return self.rps
 
         else :
@@ -24,10 +25,7 @@ class motorspeed(self,pin,resolution):
     def RPM(self):
         self.rpm=self.RPS()*60
         return self.rpm
-right_motor=motorspeed(5,20)
-while 1:
-    time.sleep(0.1)
-    print(right_motor.RPS())
+
 """
 GPIO.setmode(GPIO.BOARD)
 pi = pigpio.pi()

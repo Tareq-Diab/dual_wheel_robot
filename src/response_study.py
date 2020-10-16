@@ -1,4 +1,5 @@
 #!/usr/bin/env python
+
 #import matplotlib.pyplot as pyplot
 #import matplotlib
 import numpy as np
@@ -32,14 +33,16 @@ pwm_ml.ChangeDutyCycle(speed)
 right_motor=motorspeed(5,20)
 def step_function(amplitude):
     log=np.zeros([501,2])
-    time=0
-    pwm_mr.ChangeDutyCycle(amplitude)
+    t=0
+    pwm_mr.ChangeDutyCycle(50)
+    print("intialising")
     gpio.output(mr[0],1)
+    gpio.output(ml[1],1)
     for i in range(501):
         rps=right_motor.RPS()
-        log[i]=[rps,time]
+        log[i]=[rps,t]
         time.sleep(0.01)
-        time=time+0.01
+        t=t+0.01
     pwm_mr.ChangeDutyCycle(0)
     gpio.output(mr[0],0)
     pickle.dump(log,outfile)
