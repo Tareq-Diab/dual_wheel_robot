@@ -14,9 +14,13 @@ class motorspeed(self,pin,resolution):
         self.motor._high=None
         self.motor._high_tick=None
         self.motor._period=None
+        if not(self.F==0)
 
-        self.rps=self.F/resolution
-        return self.rps
+            self.rps=self.F/resolution
+            return self.rps
+
+        else :
+            return 0
     def RPM(self):
         self.rpm=self.RPS()*60
         return self.rpm
