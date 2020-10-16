@@ -21,6 +21,7 @@ class motorspeed:
             return self.rps
 
         else :
+            
             return 0
     def RPM(self):
         self.rpm=self.RPS()*60

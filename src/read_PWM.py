@@ -100,7 +100,7 @@ class reader:
       Cancels the reader and releases resources.
       """
       self._cb.cancel()
-
+"""
 if __name__ == "__main__":
 
    import time
@@ -131,3 +131,4 @@ if __name__ == "__main__":
 
    pi.stop()
 
+"""
