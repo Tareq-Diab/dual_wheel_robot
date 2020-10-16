@@ -10,7 +10,7 @@ import time
 from frequncy_calculator import motorspeed
 import pickle
 
-outfile=open("respone_analysis",'wb')
+outfile=open("src/response_study_output/respone_analysis",'wb')
 
 
 gpio.setmode(gpio.BOARD)
