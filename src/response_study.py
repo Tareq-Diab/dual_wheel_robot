@@ -1,13 +1,15 @@
 #!/usr/bin/env python
-import matplotlib.pyplot as pyplot
-import matplotlib
+#import matplotlib.pyplot as pyplot
+#import matplotlib
 import numpy as np
 
 import RPi.GPIO as gpio
 import time
 
 from frequncy_calculator import motorspeed
+import pickle
 
+outfile=open("respone_analysis",'wb')
 
 
 gpio.setmode(gpio.BOARD)
@@ -40,13 +42,17 @@ def step_function(amplitude):
         time=time+0.01
     pwm_mr.ChangeDutyCycle(0)
     gpio.output(mr[0],0)
+    pickle.dump(log,outfile)
+    outfile.close()
     #plotting the step function response
+    """
     fig , ax =plt.subplots()
     ax.plot(log[:,0],log[:,1])
     ax.set(xlable='time (ms)',ylable='rps',title='step function response')
     ax.grid()
     fig.savefig("response_study_output/step_response.png")
     plt.show()
+    """
 
 def DutyCycle_rps_relation():
     log=np.zeros([101,2])
@@ -59,11 +65,15 @@ def DutyCycle_rps_relation():
     pwm_mr.ChangeDutyCycle(0)
     gpio.output(mr[0],0)
     #plotting the step function response
+    pickle.dump(log,outfile)
+    outfile.close()
+    """
     fig , ax =plt.subplots()
     ax.plot(log[:,0],log[:,1])
     ax.set(xlable='rps',ylable='Duty Cycle(%)',title='Duty Cycle RPS relation')
     ax.grid()
     fig.savefig("response_study_output/step_response.png")
     plt.show()
+    """
 if __name__=="__main__":
     step_function(50)
