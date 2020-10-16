@@ -10,19 +10,20 @@ class motorspeed:
         self.pi=pigpio.pi()
         self.resolution=resolution
         self.motor=reader(self.pi,pin)
+        self.prev=0
+        self.counter=0
     def RPS(self):
         self.F=self.motor.frequency()
-        self.motor._high=None
-        self.motor._high_tick=None
-        self.motor._period=None
-        if not ( self.F == 0 ):
-
-            self.rps=self.F/self.resolution
-            return self.rps
-
+        #self.motor._high=None
+        #self.motor._high_tick=None
+        #self.motor._period=None
+        
+        if self.F == self.prev :
+            return 0
         else :
             
-            return 0
+            return self.F/self.resolution
+            
     def RPM(self):
         self.rpm=self.RPS()*60
         return self.rpm
