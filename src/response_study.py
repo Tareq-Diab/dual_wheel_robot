@@ -65,9 +65,9 @@ def DutyCycle_rps_relation():
     gpio.output(ml[1],1)
     for i in range(101):
             pwm_mr.ChangeDutyCycle(i)
-            time.sleep(0.1)
+            time.sleep(0.3)
             rps=right_motor.RPS()
-
+            print(rps)
             log[i]=[rps,i]
 
     pwm_mr.ChangeDutyCycle(0)
