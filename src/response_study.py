@@ -10,7 +10,7 @@ import time
 from frequncy_calculator import motorspeed
 import pickle
 
-outfile=open("src/response_study_output/respone_analysis",'wb')
+#outfile=open("src/response_study_output/respone_analysis",'wb')
 
 
 gpio.setmode(gpio.BOARD)
@@ -58,11 +58,15 @@ def step_function(amplitude):
     """
 
 def DutyCycle_rps_relation():
+    outfile=open("src/response_study_output/respone_analysis_DC_RPS",'wb')
+
     log=np.zeros([101,2])
     gpio.output(mr[0],1)
     for i in range(101):
             pwm_mr.ChangeDutyCycle(i)
+            time.sleep(0.1)
             rps=right_motor.RPS()
+
             log[i]=[rps,i]
 
     pwm_mr.ChangeDutyCycle(0)
@@ -79,4 +83,4 @@ def DutyCycle_rps_relation():
     plt.show()
     """
 if __name__=="__main__":
-    step_function(50)
+    DutyCycle_rps_relation()
