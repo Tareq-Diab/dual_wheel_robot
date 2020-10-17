@@ -11,7 +11,7 @@ class reader:
    """
    A class to read speedometer pulses and calculate the RPM.
    """
-   def __init__(self, pi, gpio, pulses_per_rev=1.0, weighting=0.0, min_RPM=5.0):
+   def __init__(self, pi, gpio, pulses_per_rev=20, weighting=0.0, min_RPM=5.0):
       """
       Instantiate with the Pi and gpio of the RPM signal
       to monitor.
@@ -103,8 +103,8 @@ if __name__ == "__main__":
    import pigpio
    import read_RPM
 
-   RPM_GPIO = 4
-   RUN_TIME = 60.0
+   RPM_GPIO = 5
+   RUN_TIME = 60
    SAMPLE_TIME = 2.0
 
    pi = pigpio.pi()
