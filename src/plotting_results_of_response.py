@@ -32,4 +32,4 @@ def DC_RPS_plotting():
     ax.grid()
     fig.savefig("response_study_output/DC_RPS_relationat_6v_input.png")
     plt.show()
-step_f_plotting()
+DC_RPS_plotting()

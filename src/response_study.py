@@ -39,7 +39,7 @@ def step_function(amplitude):
     gpio.output(mr[0],1)
     gpio.output(ml[1],1)
     for i in range(501):
-        rps=right_motor.RPS()
+        rps=right_motor.RPM()
         log[i]=[rps,t]
         time.sleep(0.01)
         t=t+0.01
@@ -66,7 +66,7 @@ def DutyCycle_rps_relation():
     for i in range(101):
             pwm_mr.ChangeDutyCycle(i)
             time.sleep(0.3)
-            rps=right_motor.RPS()
+            rps=right_motor.RPM()
             print(rps)
             log[i]=[rps,i]
 

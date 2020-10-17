@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 import time 
 import RPi.GPIO as GPIO
-from read_PWM import reader
+from read_RPM import reader
 import pigpio
 
 
@@ -9,7 +9,7 @@ class motorspeed:
     def __init__(self,pin,resolution):
         self.pi=pigpio.pi()
         self.resolution=resolution
-        self.motor=reader(self.pi,pin,0.7)
+        self.motor=reader(self.pi,pin,resolution)
         self.prev=0
         self.counter=0
     def RPS(self):
@@ -25,7 +25,7 @@ class motorspeed:
             return self.F/self.resolution
             
     def RPM(self):
-        self.rpm=self.RPS()*60
+        self.rpm=self.motor.RPM()
         return self.rpm
 
 """
