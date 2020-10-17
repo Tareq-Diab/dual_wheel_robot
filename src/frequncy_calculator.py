@@ -9,7 +9,7 @@ class motorspeed:
     def __init__(self,pin,resolution):
         self.pi=pigpio.pi()
         self.resolution=resolution
-        self.motor=reader(self.pi,pin,0.5)
+        self.motor=reader(self.pi,pin,0.7)
         self.prev=0
         self.counter=0
     def RPS(self):
