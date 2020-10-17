@@ -62,6 +62,7 @@ def DutyCycle_rps_relation():
 
     log=np.zeros([101,2])
     gpio.output(mr[0],1)
+    gpio.output(ml[1],1)
     for i in range(101):
             pwm_mr.ChangeDutyCycle(i)
             time.sleep(0.1)
