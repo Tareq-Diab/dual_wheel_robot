@@ -21,7 +21,7 @@ def step_f_plotting():
 def DC_RPS_plotting():
     infile=open("response_study_output/respone_analysis_DC_RPS",'rb') 
     log =pickle.load(infile)   
-    print(log[0])
+    print(log)
 
     fig , ax =plt.subplots()
     ax.plot(log[:,1],log[:,0])
