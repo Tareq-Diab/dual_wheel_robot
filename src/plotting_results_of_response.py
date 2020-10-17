@@ -15,7 +15,7 @@ def step_f_plotting():
     ax.set_xlabel('time (ms)')
     ax.set_ylabel('RPS')
     ax.grid()
-    fig.savefig("response_study_output/step_response.png")
+    fig.savefig("response_study_output/step_response_at_6v_input.png")
     plt.show()
 
 def DC_RPS_plotting():
@@ -30,6 +30,6 @@ def DC_RPS_plotting():
     ax.set_xlabel('Duty Cycle')
     ax.set_ylabel('RPS')
     ax.grid()
-    fig.savefig("response_study_output/step_response.png")
+    fig.savefig("response_study_output/DC_RPS_relationat_6v_input.png")
     plt.show()
-DC_RPS_plotting()
+step_f_plotting()
